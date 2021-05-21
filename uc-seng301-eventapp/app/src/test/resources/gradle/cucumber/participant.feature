@@ -26,3 +26,20 @@
 #
 
 Feature: U3 - Add participant to event
+
+  Scenario: AC1 - Add one existing participant to an event by its name
+    Given There is a participant with name "Allen"
+    When I add "Allen" to an event as a participant
+    Then This event has a participant names "Allen" that is persisted when saving the event
+
+
+  Scenario: AC2 - Add a participant which not exist and create as a side effect with given name
+    Given There is no participant with name "Allen"
+    When I create a participant with name "Allen"
+    Then There is a participant with name "Allen"
+
+
+  Scenario: AC3 - Can not add empty participants or participants with invalid names
+    Given There are no participants with name "Allen123" and ""
+    When I create participants with name "Allen123" and ""
+    Then I expect an exception that disallow me to create any of those
