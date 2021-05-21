@@ -60,6 +60,9 @@ public class CreateNewEventFeature {
   private String firstEventName;
   private String eventDescription;
 
+  private String firstEventDate;
+  private String secondEventDate;
+
   @Before
   public void setup() {
     Configuration configuration = new Configuration();
@@ -148,5 +151,37 @@ public class CreateNewEventFeature {
   public void i_expect_an_exception_that_disallow_me_to_save_it() {
     Assertions.assertThrows(IllegalArgumentException.class, () -> eventAccessor.persistEvent(secondEvent));
   }
+
+  //
+  // U1 - AC4
+  //
+  @Given("There is no events with name {string} and {string}")
+  public void there_is_no_events_with_name_and(String name1, String name2) {
+    Assertions.assertFalse(eventAccessor.eventExistsWithName(name1));
+    Assertions.assertFalse(eventAccessor.eventExistsWithName(name2));
+
+  }
+
+  @When("I want to set the first event date to {string} and the second to {string}")
+  public void i_want_to_set_the_first_event_date_to_and_the_second_to(String date1, String date2) {
+
+    firstEventDate = date1;
+    secondEventDate = date2;
+
+  }
+
+  @Then("I expect an exception that disallow me to create any of those")
+  public void i_expect_an_exception_that_disallow_me_to_create_any_of_those() {
+    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent("name",
+            "description",
+            firstEventDate, "some type"));
+    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent("name",
+            "description",
+            secondEventDate, "some type"));
+
+
+  }
+
+
 
 }
