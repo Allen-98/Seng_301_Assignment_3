@@ -62,6 +62,7 @@ public class CreateNewEventFeature {
 
   private String firstEventDate;
   private String secondEventDate;
+  private String secondEventName;
 
   @Before
   public void setup() {
@@ -160,24 +161,25 @@ public class CreateNewEventFeature {
     Assertions.assertFalse(eventAccessor.eventExistsWithName(name1));
     Assertions.assertFalse(eventAccessor.eventExistsWithName(name2));
 
+    firstEventName = name1;
+    secondEventName = name2;
+
   }
 
   @When("I want to set the first event date to {string} and the second to {string}")
   public void i_want_to_set_the_first_event_date_to_and_the_second_to(String date1, String date2) {
 
     firstEventDate = date1;
-    secondEventDate = date2;
+    secondEventDate =  date2;
+
+
 
   }
 
   @Then("I expect an exception that disallow me to create any of those")
   public void i_expect_an_exception_that_disallow_me_to_create_any_of_those() {
-    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent("name",
-            "description",
-            firstEventDate, "some type"));
-    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent("name",
-            "description",
-            secondEventDate, "some type"));
+    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent(firstEventName, "description", firstEventDate, "type"));
+    Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent(secondEventName, "description", secondEventDate, "type"));
 
 
   }

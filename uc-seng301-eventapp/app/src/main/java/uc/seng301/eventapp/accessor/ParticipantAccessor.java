@@ -120,6 +120,10 @@ public class ParticipantAccessor {
   public Long persistParticipant(Participant participant) throws IllegalArgumentException {
     if (null == participant || null == participant.getName() || participant.getName().isBlank()) {
       throw new IllegalArgumentException("cannot save null or blank participant");
+    } else{
+      if (!isValidName(participant)){
+        throw new IllegalArgumentException("cannot save invalid name");
+      }
     }
 
     Participant existingParticipant = getParticipantByName(participant.getName());
@@ -139,4 +143,24 @@ public class ParticipantAccessor {
     }
     return participant.getParticipantId();
   }
+
+
+  public static boolean isValidName(Participant participant){
+    String name = participant.getName();
+    char[] chars = name.toCharArray();
+    boolean valid = false;
+    for (int i = 0; i < chars.length; i++){
+      valid = (chars[i] >= 'a' && chars[i] <= 'z') || (chars[i] >= 'A' && chars[i] <= 'Z');
+      if (!valid){
+        return false;
+      }
+    }
+    return true;
+
+
+  }
+
+
+
+
 }
