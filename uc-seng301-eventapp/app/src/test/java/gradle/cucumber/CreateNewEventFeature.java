@@ -168,11 +168,8 @@ public class CreateNewEventFeature {
 
   @When("I want to set the first event date to {string} and the second to {string}")
   public void i_want_to_set_the_first_event_date_to_and_the_second_to(String date1, String date2) {
-
     firstEventDate = date1;
-    secondEventDate =  date2;
-
-
+    secondEventDate = date2;
 
   }
 
@@ -180,7 +177,6 @@ public class CreateNewEventFeature {
   public void i_expect_an_exception_that_disallow_me_to_create_any_of_those() {
     Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent(firstEventName, "description", firstEventDate, "type"));
     Assertions.assertThrows(IllegalArgumentException.class, () -> eventHandler.createEvent(secondEventName, "description", secondEventDate, "type"));
-
 
   }
 

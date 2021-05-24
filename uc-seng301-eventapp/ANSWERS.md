@@ -1,16 +1,16 @@
 # SENG301 Assignment 1 (2021) - Student answers
 
-**YOUR NAME**
+**Xiaojie Wang, Student ID: 18928477**
 
 ## Task 1.b - Write acceptance tests for U3 - Add participants to events
 
 ### Feature file (Cucumber Scenarios)
 
-**NAME OF FEATURE FILE**
+**participant.feature**
 
 ### Java class implementing the acceptance tests
 
-**NAME OF JAVA FILE**
+**AddParticipantFeature.java**
 
 ## Task 2 - Identify the patterns in the code
 
