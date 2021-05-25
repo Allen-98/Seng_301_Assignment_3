@@ -1,6 +1,8 @@
+gradle/cucumber/CreateNewEventFeature.java
+ gradle.cucumber.CreateNewEventFeature
 gradle/cucumber/AddParticipantFeature.java
  gradle.cucumber.AddParticipantFeature
 gradle/cucumber/AddLocationFeature.java
  gradle.cucumber.AddLocationFeature
-gradle/cucumber/CreateNewEventFeature.java
- gradle.cucumber.CreateNewEventFeature
+gradle/cucumber/UpdateStatusFeature.java
+ gradle.cucumber.UpdateStatusFeature

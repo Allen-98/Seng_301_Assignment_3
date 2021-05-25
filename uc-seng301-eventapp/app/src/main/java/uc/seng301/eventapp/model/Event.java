@@ -253,7 +253,7 @@ public abstract class Event {
    * Add given participant to list of participants to this event
    * 
    * @param participant a (assumed non-null, non duplicate) participant
-   * @return true if the add operation succeeded (from {@link Collections#add})
+   * @return true if the add operation succeeded (from {@link Collections#})
    */
   public boolean addParticipant(Participant participant) {
     if (getParticipants().isEmpty()) {

@@ -64,11 +64,11 @@
 
 ### What pattern fulfils the need for the feature?
 
-**YOUR ANSWER**
+**State pattern**
 
 ### What is its goal and why is it needed here?
 
-**YOUR ANSWER**
+**Allows an event to alter its behavior when its state changes**
 
 ### Name of UML Class diagram attached:
 
