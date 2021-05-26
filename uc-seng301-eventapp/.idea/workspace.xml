@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04eea012-505a-4ed4-8003-44a246f785c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ANSWERS.md" beforeDir="false" afterPath="$PROJECT_DIR$/ANSWERS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/gradle/cucumber/UpdateStatusFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/gradle/cucumber/UpdateStatusFeature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/resources/gradle/cucumber/status.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/gradle/cucumber/status.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/resources/test/gradle/cucumber/status.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/resources/test/gradle/cucumber/status.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lab3.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/app/lab3.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
