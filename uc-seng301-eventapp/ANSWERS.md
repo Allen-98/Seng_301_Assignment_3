@@ -18,11 +18,11 @@
 
 #### What pattern is it?
 
-**YOUR ANSWER**
+**State pattern**
 
 #### What is its goal in the code?
 
-**YOUR ANSWER**
+**Allows an event to alter its behavior when its state changes**
 
 #### Name of UML Class diagram attached:
 
@@ -32,17 +32,28 @@
 
 | GoF element | Code element |
 | ----------- | ------------ |
-|             |              |
+|    Context  | EventHandler |
+| Request() | updateEventStatus() |
+| State | Event |
+| ConcreteStateA | ArchivedEvent |
+| ConcreteStateB | CanceledEvent |
+| ConcreteStateC | PastEvent |
+| ConcreteStateD | ScheduledEvent |
+| handle() | cancel() |
+| handle() | happen() |
+| handle() | reschedule() |
+| handle() | archive() |
 
 ### Pattern 2
 
 #### What pattern is it?
 
-**YOUR ANSWER**
+**Factory method pattern**
 
 #### What is its goal in the code?
 
-**YOUR ANSWER**
+**Defines an interface for creating an object but let subclasses decide which class to
+instantiate**
 
 #### Name of UML Class diagram attached:
 
@@ -52,7 +63,14 @@
 
 | GoF element | Code element |
 | ----------- | ------------ |
-|             |              |
+| AbstractCreator |  EventHandler |
+| ConcreteCreator | EventHandlerImpl |
+| AbstractProduct | Event |
+| ConcreteProduct | CanceledEvent |
+| ConcreteProduct | ArchivedEvent |
+| ConcreteProduct | PastEvent |
+| ConcreteProduct | ScheduledEvent |
+| FactoryMethod | createEvent() |
 
 ## Task 3 - Full UML Class diagram
 
@@ -64,11 +82,12 @@
 
 ### What pattern fulfils the need for the feature?
 
-**State pattern**
+**Observer pattern**
 
 ### What is its goal and why is it needed here?
 
-**Allows an event to alter its behavior when its state changes**
+**Defines a one-to-many dependency between events and participants so that when one event changes state all its participants are notified and updated automatically**
+
 
 ### Name of UML Class diagram attached:
 

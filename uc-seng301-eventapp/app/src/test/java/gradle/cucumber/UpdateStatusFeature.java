@@ -73,6 +73,7 @@ public class UpdateStatusFeature {
     public void then_i_receive_a_notification_with_the_event_name_and_the_new_status(String name, String status) {
         Assertions.assertEquals(name, event.getName());
         Assertions.assertEquals(status, eventStatus.name());
+
     }
 
 
