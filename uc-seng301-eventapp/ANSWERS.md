@@ -26,13 +26,15 @@
 
 #### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+**State Pattern UML**
+
+![State Pattern UML](diagrams/StatePatternUML.png)
 
 #### Mapping to GoF pattern elements:
 
 | GoF element | Code element |
 | ----------- | ------------ |
-|    Context  | EventHandler |
+| Context  | EventHandlerImpl |
 | Request() | updateEventStatus() |
 | State | Event |
 | ConcreteStateA | ArchivedEvent |
@@ -48,29 +50,30 @@
 
 #### What pattern is it?
 
-**Factory method pattern**
+**Abstract Factory pattern**
 
 #### What is its goal in the code?
 
-**Defines an interface for creating an object but let subclasses decide which class to
-instantiate**
+**Provides an interface for creating families of related or dependent objects without specifying their concrete classes**
 
 #### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+**Abstract Factory Pattern UML**
+
+![Abstract Factory Pattern UML](diagrams/AbstractFactoryPatternUML.png)
+
 
 #### Mapping to GoF pattern elements:
 
 | GoF element | Code element |
 | ----------- | ------------ |
-| AbstractCreator |  EventHandler |
-| ConcreteCreator | EventHandlerImpl |
+| AbstractFactory |  EventHandler |
+| ConcreteFactory | EventHandlerImpl |
+| CreateProduct() | createEvent() |
 | AbstractProduct | Event |
-| ConcreteProduct | CanceledEvent |
-| ConcreteProduct | ArchivedEvent |
-| ConcreteProduct | PastEvent |
-| ConcreteProduct | ScheduledEvent |
-| FactoryMethod | createEvent() |
+| ConcreteProduct | Event* |
+
+
 
 ## Task 3 - Full UML Class diagram
 
