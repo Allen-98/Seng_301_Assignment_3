@@ -97,20 +97,35 @@
 
 ### Name of UML Class diagram attached:
 
-**YOUR ANSWER**
+**ObserverPatternUML.png**
+
+![Abstract Factory Pattern UML](diagrams/ObserverPatternUML.png)
 
 ### Mapping to GoF pattern elements:
 
 | GoF element | Code element |
 | ----------- | ------------ |
-|             |              |
+|  Subject   |   Event  |
+| ConcreteSubject | CanceledEvent |
+| ConcreteSubject | PastEvent |
+| ConcreteSubject | ScheduledEvent | 
+| Observer | Participant | 
+| ConcreteObserver | Participant* |
+| Notify() | notifyParticipants() |
+| Attach(observer) | addParticipant() |
+| Detach(observer) | removeParticipant() |
+| Update() | getUpdate() |
+| doSomething() | happen() |
+| doSomething() | cancel() |
+| doSomething() | reschedule() |
+| doSomething() | archive() |
 
 ## Task 5 - BONUS - Acceptance tests for Task 4
 
 ### Feature file (Cucumber Scenarios)
 
-**NAME OF FEATURE FILE**
+**status.feature**
 
 ### Java class implementing the acceptance tests
 
-**NAME OF JAVA FILE**
+**UpdateStatusFeature.java**

@@ -27,10 +27,7 @@
 
 package uc.seng301.eventapp.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -260,6 +257,41 @@ public abstract class Event {
       participants = new ArrayList<>();
     }
     return getParticipants().add(participant);
+  }
+
+  public void removeParticipant(Participant participant){
+    if (getParticipants().isEmpty()){
+      throw new IllegalArgumentException("There is no participant in this event");
+    } else {
+      Iterator<Participant> it = getParticipants().iterator();
+      while(it.hasNext()){
+        Participant prt = it.next();
+        if(participant.equals(prt)){
+          it.remove();
+        }
+      }
+    }
+
+  }
+
+  public void removeAllParticipants(){
+    if (getParticipants().isEmpty()){
+      throw new IllegalArgumentException("There is no participant in this event");
+    } else {
+        getParticipants().clear();
+      }
+  }
+
+  public void notifyParticipants(EventStatus status){
+
+    if (participants.isEmpty()){
+      throw new IllegalArgumentException("There is no participant in this event");
+    } else {
+      for (int i = 0; i < participants.size(); i++){
+        name = getName();
+        participants.get(i).getUpdate(name, status);
+      }
+    }
   }
 
   /**

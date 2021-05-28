@@ -86,11 +86,13 @@ public class ScheduledEvent extends Event {
 
   @Override
   public Event cancel() {
+    notifyParticipants(EventStatus.CANCELED);
     return new CanceledEvent(this);
   }
 
   @Override
   public Event happen() {
+    notifyParticipants(EventStatus.PAST);
     return new PastEvent(this);
   }
 
@@ -101,7 +103,9 @@ public class ScheduledEvent extends Event {
 
   @Override
   public Event archive() {
-    throw new IllegalStateException();
+    notifyParticipants(EventStatus.ARCHIVED);
+    removeAllParticipants();
+    return new ArchivedEvent(this);
   }
 
   @Override

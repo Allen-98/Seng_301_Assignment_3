@@ -141,4 +141,34 @@ public class EventHandlerImpl implements EventHandler {
     return updatedEvent;
   }
 
+  @Override
+  public Event updateEventStatus(Event event, EventStatus newStatus){
+    if (null == event || null == newStatus) {
+      throw new IllegalArgumentException("event or status passed were null.");
+    }
+
+    LOGGER.info("update status of event with id:{} to status '{}'", event.getEventId(), newStatus);
+    Event updatedEvent = null;
+    switch (newStatus) {
+      case ARCHIVED:
+        updatedEvent = event.archive();
+        break;
+      case CANCELED:
+        updatedEvent = event.cancel();
+        break;
+      case PAST:
+        updatedEvent = event.happen();
+        break;
+
+      default:
+        LOGGER.error("unimplemented status '{}' passed", newStatus);
+        // returned event will be null and a nullpointer may be raised higher.
+        // Since we've been passed an unknown status, we can't do anything and let the
+        // caller potentially crash as it is outside of this class knowledge
+        break;
+    }
+    return updatedEvent;
+
+  }
+
 }

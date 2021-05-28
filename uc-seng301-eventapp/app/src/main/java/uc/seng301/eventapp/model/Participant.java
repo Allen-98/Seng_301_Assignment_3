@@ -60,6 +60,11 @@ public class Participant {
   @JoinTable(name = "participant_attends_event", joinColumns = @JoinColumn(name = "id_participant"), inverseJoinColumns = @JoinColumn(name = "id_event"))
   private List<Event> events;
 
+  public String notification;
+  public boolean getNotify;
+  public String outputEventName;
+  public String outputStatus;
+
   /**
    * JPA compliant no-args constructor.
    */
@@ -129,6 +134,19 @@ public class Participant {
   public void setEvents(List<Event> events) {
     this.events = events;
   }
+
+  public void getUpdate(String eventName, EventStatus eventStatus){
+    getNotify = true;
+    outputEventName = eventName;
+    outputStatus = eventStatus.name();
+
+    notification = this.name + ", " + outputEventName + " has changed the status to " + outputStatus;
+
+    System.out.print(notification);
+  }
+
+
+
 
   @Override
   public String toString() {

@@ -90,4 +90,6 @@ public interface EventHandler {
   Event updateEventStatus(Event event, EventStatus newStatus, Date date)
       throws IllegalArgumentException, IllegalStateException;
 
+  Event updateEventStatus(Event event, EventStatus newStatus)
+          throws IllegalArgumentException, IllegalStateException;
 }

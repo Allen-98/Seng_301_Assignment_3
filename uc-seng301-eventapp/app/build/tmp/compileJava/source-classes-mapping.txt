@@ -1,5 +1,5 @@
-uc/seng301/eventapp/model/Participant.java
- uc.seng301.eventapp.model.Participant
+uc/seng301/eventapp/model/EventType.java
+ uc.seng301.eventapp.model.EventType
 uc/seng301/eventapp/util/DateUtil.java
  uc.seng301.eventapp.util.DateUtil
 uc/seng301/eventapp/location/LocationService.java
@@ -8,14 +8,14 @@ uc/seng301/eventapp/model/EventStatus.java
  uc.seng301.eventapp.model.EventStatus
 uc/seng301/eventapp/location/NominatimQuery.java
  uc.seng301.eventapp.location.NominatimQuery
-uc/seng301/eventapp/accessor/ParticipantAccessor.java
- uc.seng301.eventapp.accessor.ParticipantAccessor
-uc/seng301/eventapp/location/LocationServiceResult.java
- uc.seng301.eventapp.location.LocationServiceResult
-uc/seng301/eventapp/model/EventType.java
- uc.seng301.eventapp.model.EventType
 uc/seng301/eventapp/location/NominatimResult.java
  uc.seng301.eventapp.location.NominatimResult
+uc/seng301/eventapp/location/LocationServiceResult.java
+ uc.seng301.eventapp.location.LocationServiceResult
+uc/seng301/eventapp/model/Participant.java
+ uc.seng301.eventapp.model.Participant
+uc/seng301/eventapp/accessor/ParticipantAccessor.java
+ uc.seng301.eventapp.accessor.ParticipantAccessor
 uc/seng301/eventapp/model/CanceledEvent.java
  uc.seng301.eventapp.model.CanceledEvent
 uc/seng301/eventapp/accessor/EventAccessor.java
