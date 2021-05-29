@@ -65,24 +65,26 @@ public class PastEvent extends Event {
   }
 
   @Override
-  public Event cancel() {
-    throw new IllegalStateException();
+  public CanceledEvent cancel() {
+    System.out.println("Can not cancel a past event");
+    return null;
   }
 
   @Override
-  public Event happen() {
-    throw new IllegalStateException();
+  public PastEvent happen() {
+    System.out.println("Can not happen a past event");
+    return this;
   }
 
   @Override
-  public Event reschedule(Date date) {
+  public ScheduledEvent reschedule(Date date) {
     setDate(date);
     notifyParticipants(EventStatus.SCHEDULED);
     return new ScheduledEvent(this);
   }
 
   @Override
-  public Event archive() {
+  public ArchivedEvent archive() {
     notifyParticipants(EventStatus.ARCHIVED);
     removeAllParticipants();
     return new ArchivedEvent(this);

@@ -23,6 +23,8 @@ public interface EventHandler {
    */
   void addParticipants(Event event, List<Participant> participants);
 
+  void removeParticipants(Event event, Participant participant);
+
   /**
    * Create an {@link Event} object with given parameters (event cost will be set
    * to 0).
@@ -92,4 +94,6 @@ public interface EventHandler {
 
   Event updateEventStatus(Event event, EventStatus newStatus)
           throws IllegalArgumentException, IllegalStateException;
+
+
 }

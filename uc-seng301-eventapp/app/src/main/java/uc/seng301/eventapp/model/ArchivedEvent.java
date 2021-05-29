@@ -65,23 +65,27 @@ public class ArchivedEvent extends Event {
   }
 
   @Override
-  public Event cancel() {
-    throw new IllegalStateException();
+  public CanceledEvent cancel() {
+    System.out.println("Can not cancel an archived event");
+    return null;
   }
 
   @Override
-  public Event happen() {
-    throw new IllegalStateException();
+  public PastEvent happen() {
+    System.out.println("Can not happen an archived event");
+    return null;
   }
 
   @Override
-  public Event reschedule(Date date) {
-    throw new IllegalStateException();
+  public ScheduledEvent reschedule(Date date) {
+    System.out.println("Can not reschedule an archived event");
+    return null;
   }
 
   @Override
-  public Event archive() {
-    throw new IllegalStateException();
+  public ArchivedEvent archive() {
+    System.out.println("Can not archive an archived event");
+    return this;
   }
 
   @Override

@@ -111,15 +111,17 @@ public abstract class Event {
   @JoinColumn(name = "id_location")
   private Location location;
 
+  private EventStatus status;
+
   /**
    * Cancel this event. Only Scheduled events can be canceled.
    */
-  public abstract Event cancel();
+  public abstract CanceledEvent cancel();
 
   /**
    * Mark this event has having happened. Only Scheduled events can happen.
    */
-  public abstract Event happen();
+  public abstract PastEvent happen();
 
   /**
    * Reschedule this event. Only past or canceled events can be rescheduled.
@@ -127,7 +129,7 @@ public abstract class Event {
    * @param date the new date for this event (must be in the future)
    * @throws IllegalArgumentException if given date is in the past.
    */
-  public abstract Event reschedule(Date date) throws IllegalArgumentException;
+  public abstract ScheduledEvent reschedule(Date date) throws IllegalArgumentException;
 
   /**
    * Archive an event. Any (non-archived) events can be archived. Cannot happen,
@@ -135,7 +137,7 @@ public abstract class Event {
    * 
    * Archived events are kept for the record only.
    */
-  public abstract Event archive();
+  public abstract ArchivedEvent archive();
 
   /**
    * Retrieve the technical ID of this event
@@ -261,7 +263,7 @@ public abstract class Event {
 
   public void removeParticipant(Participant participant){
     if (getParticipants().isEmpty()){
-      throw new IllegalArgumentException("There is no participant in this event");
+      System.out.println("There is no participant in this event");
     } else {
       Iterator<Participant> it = getParticipants().iterator();
       while(it.hasNext()){
@@ -276,16 +278,17 @@ public abstract class Event {
 
   public void removeAllParticipants(){
     if (getParticipants().isEmpty()){
-      throw new IllegalArgumentException("There is no participant in this event");
+      System.out.println("There is no participant in this event");
     } else {
         getParticipants().clear();
+        System.out.println("All participants are removed");
       }
   }
 
   public void notifyParticipants(EventStatus status){
 
     if (participants.isEmpty()){
-      throw new IllegalArgumentException("There is no participant in this event");
+      System.out.println("There is no participant in this event");
     } else {
       for (int i = 0; i < participants.size(); i++){
         name = getName();
@@ -346,4 +349,11 @@ public abstract class Event {
       // @formatter:on
   }
 
+  public EventStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(EventStatus status) {
+    this.status = status;
+  }
 }

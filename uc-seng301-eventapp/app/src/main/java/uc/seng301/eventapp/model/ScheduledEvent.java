@@ -85,24 +85,25 @@ public class ScheduledEvent extends Event {
   }
 
   @Override
-  public Event cancel() {
+  public CanceledEvent cancel() {
     notifyParticipants(EventStatus.CANCELED);
     return new CanceledEvent(this);
   }
 
   @Override
-  public Event happen() {
+  public PastEvent happen() {
     notifyParticipants(EventStatus.PAST);
     return new PastEvent(this);
   }
 
   @Override
-  public Event reschedule(Date date) {
-    throw new IllegalStateException();
+  public ScheduledEvent reschedule(Date date) {
+    System.out.println("Can not reschedule a scheduled event");
+    return this;
   }
 
   @Override
-  public Event archive() {
+  public ArchivedEvent archive() {
     notifyParticipants(EventStatus.ARCHIVED);
     removeAllParticipants();
     return new ArchivedEvent(this);

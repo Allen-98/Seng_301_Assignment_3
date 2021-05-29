@@ -16,20 +16,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ANSWERS.md" beforeDir="false" afterPath="$PROJECT_DIR$/ANSWERS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/distributions/app.tar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/distributions/app.tar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/resources/test/gradle/cucumber/status.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/resources/test/gradle/cucumber/status.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/lab3.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/app/lab3.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/handler/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/handler/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/handler/EventHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/handler/EventHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/ArchivedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/ArchivedEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/CanceledEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/CanceledEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/PastEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/PastEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/ScheduledEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uc/seng301/eventapp/model/ScheduledEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/gradle/cucumber/UpdateStatusFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/gradle/cucumber/UpdateStatusFeature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/resources/gradle/cucumber/status.feature" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/resources/gradle/cucumber/status.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.uc-seng301-eventapp [app:cucumber]" />
         <item itemvalue="Gradle.uc-seng301-eventapp [app:run]" />
+        <item itemvalue="Gradle.uc-seng301-eventapp [app:cucumber]" />
       </list>
     </recent_temporary>
   </component>

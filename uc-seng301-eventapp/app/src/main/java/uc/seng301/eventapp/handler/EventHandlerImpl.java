@@ -8,11 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import uc.seng301.eventapp.accessor.EventAccessor;
-import uc.seng301.eventapp.model.Event;
-import uc.seng301.eventapp.model.EventStatus;
-import uc.seng301.eventapp.model.Location;
-import uc.seng301.eventapp.model.Participant;
-import uc.seng301.eventapp.model.ScheduledEvent;
+import uc.seng301.eventapp.model.*;
 import uc.seng301.eventapp.util.DateUtil;
 
 /**
@@ -47,6 +43,15 @@ public class EventHandlerImpl implements EventHandler {
     LOGGER.debug(event);
     LOGGER.debug(participants);
     LOGGER.debug(event.getParticipants());
+  }
+
+  @Override
+  public void removeParticipants(Event event, Participant participant) {
+    if (null == event || null == participant) {
+      throw new IllegalArgumentException("event or participant list is null");
+    }
+
+
   }
 
   @Override
@@ -120,15 +125,19 @@ public class EventHandlerImpl implements EventHandler {
         throw new IllegalArgumentException("Date cannot be null to reschedule event.");
       }
       updatedEvent = event.reschedule(date);
+      updatedEvent.setStatus(newStatus);
       break;
     case ARCHIVED:
       updatedEvent = event.archive();
+      updatedEvent.setStatus(newStatus);
       break;
     case CANCELED:
       updatedEvent = event.cancel();
+      updatedEvent.setStatus(newStatus);
       break;
     case PAST:
       updatedEvent = event.happen();
+      updatedEvent.setStatus(newStatus);
       break;
 
     default:
@@ -148,17 +157,23 @@ public class EventHandlerImpl implements EventHandler {
     }
 
     LOGGER.info("update status of event with id:{} to status '{}'", event.getEventId(), newStatus);
-    Event updatedEvent = null;
+    //Event updatedEvent = null;
     switch (newStatus) {
       case ARCHIVED:
-        updatedEvent = event.archive();
-        break;
+        ArchivedEvent updatedEvent = event.archive();
+        updatedEvent.setStatus(newStatus);
+        return updatedEvent;
+        //break;
       case CANCELED:
-        updatedEvent = event.cancel();
-        break;
+        CanceledEvent updatedEvent2 = event.cancel();
+        updatedEvent2.setStatus(newStatus);
+        return updatedEvent2;
+        //break;
       case PAST:
-        updatedEvent = event.happen();
-        break;
+        PastEvent updatedEvent3 = event.happen();
+        updatedEvent3.setStatus(newStatus);
+        return updatedEvent3;
+        //break;
 
       default:
         LOGGER.error("unimplemented status '{}' passed", newStatus);
@@ -167,7 +182,7 @@ public class EventHandlerImpl implements EventHandler {
         // caller potentially crash as it is outside of this class knowledge
         break;
     }
-    return updatedEvent;
+    return null;
 
   }
 

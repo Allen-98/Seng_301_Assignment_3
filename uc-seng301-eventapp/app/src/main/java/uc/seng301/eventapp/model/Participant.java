@@ -142,7 +142,7 @@ public class Participant {
 
     notification = this.name + ", " + outputEventName + " has changed the status to " + outputStatus;
 
-    System.out.print(notification);
+    System.out.println(notification);
   }
 
 

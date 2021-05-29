@@ -50,9 +50,7 @@ import uc.seng301.eventapp.handler.EventHandlerImpl;
 import uc.seng301.eventapp.location.LocationService;
 import uc.seng301.eventapp.location.LocationServiceResult;
 import uc.seng301.eventapp.location.NominatimQuery;
-import uc.seng301.eventapp.model.Event;
-import uc.seng301.eventapp.model.Location;
-import uc.seng301.eventapp.model.Participant;
+import uc.seng301.eventapp.model.*;
 import uc.seng301.eventapp.util.DateUtil;
 
 /**
@@ -269,7 +267,108 @@ public class App {
   }
 
   private void updateEventStatusMenu() {
-    System.out.println("TODO -- Implement me as part of U4 (task 4)");
+    System.out.println("What is the id of the event you want to update status to?");
+    String eventId = cli.nextLine();
+
+    if (eventId.chars().allMatch(Character::isDigit)) {
+      Event event = eventAccessor.getEventAndParticipantsById(Long.parseLong(eventId));
+      if (null != event) {
+        updateEventStatus(event);
+        eventAccessor.persistEventAndParticipants(event);
+      } else {
+        System.out.println("Cannot find event with id: " + eventId);
+      }
+    } else {
+      System.out.println("Invalid value passed, needs to be an integer value.");
+    }
+  }
+
+  private void statusMenu(){
+    System.out.println("\nWhat status do you want to change?\n"
+            + "\t 1. Cancel\n"
+            + "\t 2. Rechedule\n"
+            + "\t 3. Happen\n"
+            + "\t 4. Archive\n"
+            + "\n"
+            + "Your Answer: ");
+
+  }
+
+  private void updateEventStatus(Event event){
+    statusMenu();
+    String input = cli.nextLine();
+    int menuItem;
+    try {
+      menuItem = Integer.parseInt(input);
+    } catch (NumberFormatException e) {
+      menuItem = -1;
+    }
+    switch (menuItem) {
+      case 1:
+        event = eventHandler.updateEventStatus(event, EventStatus.CANCELED);
+
+        System.out.println("Do you want to remove participants? Type 'yes' to add, anything else to finish.");
+        if ("yes".equals(cli.nextLine())) {
+          removeParticipant(event);
+        }
+
+        Long eventId = eventAccessor.persistEventAndParticipants(event);
+        System.out.println("Event updated with id " + eventId);
+        System.out.println(event);
+        break;
+
+      case 2:
+        System.out.println(
+                "Enter a new date for your event in " + DateUtil.getInstance().getDefaultDateFormat().toUpperCase() + " format:");
+        String date = cli.nextLine();
+        event = eventHandler.updateEventStatus(event, EventStatus.SCHEDULED, DateUtil.getInstance().convertToDate(date));
+
+        System.out.println("Do you want to remove participants? Type 'yes' to add, anything else to finish.");
+        if ("yes".equals(cli.nextLine())) {
+          removeParticipant(event);
+        }
+        Long eventId2 = eventAccessor.persistEventAndParticipants(event);
+
+        System.out.println("Event updated with id " + eventId2);
+        System.out.println(event);
+        break;
+
+      case 3:
+        event = eventHandler.updateEventStatus(event, EventStatus.PAST);
+
+        System.out.println("Do you want to remove participants? Type 'yes' to add, anything else to finish.");
+        if ("yes".equals(cli.nextLine())) {
+          removeParticipant(event);
+        }
+        Long eventId3 = eventAccessor.persistEventAndParticipants(event);
+
+        System.out.println("Event updated with id " + eventId3);
+        System.out.println(event);
+        break;
+
+      case 4:
+        event = eventHandler.updateEventStatus(event, EventStatus.ARCHIVED);
+        Long eventId4 = eventAccessor.persistEvent(event);
+        System.out.println("Event updated with id " + eventId4);
+        System.out.println(event);
+        break;
+
+      default:
+        System.out.println("Unknown value entered");
+    }
+
+
+
+  }
+
+  private void removeParticipant(Event event){
+    System.out.println("What are the participants' names? Add one name per line and type '!stop' to stop.");
+    String name;
+    while (!"!stop".equals(name = cli.nextLine())) {
+      Participant part = participantAccessor.getParticipantByName(name);
+      event.removeParticipant(part);
+      System.out.println(part.getName() + " has been removed");
+    }
   }
 
   private void updateCalendar() {
